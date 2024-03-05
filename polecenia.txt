@@ -1,0 +1,32 @@
+tworzymy baze, tworzymy dowolna tabele zawierajaca 3 kolumny, zmieniamy (alter table), usuwamy, trzy rekordy, update, usuwamy
+jeden,
+
+CREATE DATABASE zwierzeta;
+CREATE TABLE zwierze(id_zwierzecia int PRIMARY KEY AUTO_INCREMENT, nazwa varchar(50), dlugosc_zycia int(3));
+ALTER TABLE zwierze ADD gatunek varchar(50);
+ALTER TABLE zwierze DROP COLUMN dlugosc_zycia;
+INSERT INTO zwierze(nazwa, gatunek) VALUES("pies", "ssak");
+INSERT INTO zwierze(nazwa, gatunek) VALUES("zolw", "gad");
+INSERT INTO zwierze(nazwa, gatunek) VALUES("sowa", "ptak");
+UPDATE zwierze SET nazwa = "blazenek", gatunek="ryba" WHERE id_zwierzecia=3;
+DELETE FROM zwierze WHERE id_zwierzecia=2;
+
+1. tworzymy nowa baze danych
+2. tworzymy tabele ktora zawiera 4 pola z czego conajmniej 1 pole z ceną 
+3. polecenie ktore dodaje jedna kolumne
+4. polecenie ktore dodaje rekordy do tabeli(4 minimum)
+5. polecenie ktore zmienia wszystkie ceny w kolumnie o 20%
+6. kwerenda ktora wyswietla wszystkie dany oraz obliczona wartosc(cena x ilosc sztuk)
+7. zmiana nazwy kolumny(czyli pola) 
+8. usuniecie tabeli
+9. usuniecie bazyA
+
+ad1. CREATE DATABASE kwiaty;
+ad2. CREATE TABLE kwiaty(id_kwiatu int PRIMARY KEY AUTO_INCREMENT, nazwa_kwiatu varchar(50), nazwa_naukowa varchar(50), cena decimal(10,2));
+ad3. ALTER TABLE kwiaty ADD ilosc_sztuk int;
+ad4. INSERT INTO kwiaty(nazwa_kwiatu, nazwa_naukowa, cena, ilosc_sztuk) VALUES("Falenopsis", "Phalaenopsis", 56.99, 12), ("Monstera dziurawa", "Monstera deliciosa", 39.89, 23), ("Epipremnum złociste", "Epipremnum aureum", 45.49, 9), ("Sansewieria gwinejska", "Dracaena trifasciata", 79.99, 6);
+ad5. UPDATE kwiaty SET cena=cena*1.2;
+ad6. SELECT *, cena*ilosc_sztuk AS "wartosc" FROM kwiaty GROUP BY id_kwiatu;
+ad7. (ALTER TABLE nazwa tabeli CHANGE nazwa kolumny, nowa nazwa kolumny, typ kolumny)ALTER TABLE kwiaty CHANGE COLUMN cena nowa_cena decimal(10,2);
+ad8. DROP TABLE kwiaty;
+ad9. DROP DATABASE kwiaty;

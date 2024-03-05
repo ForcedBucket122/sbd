@@ -1,0 +1,8 @@
+msql -u root
+
+show databases;
+
+use gry; (nazwa bazy)
+
+show tables;
+
